@@ -1,0 +1,6 @@
+<div class="cont">
+    <h1>{{title}} {{numberLesson}}</h1>
+</div>
+<div *ngFor="let homework of homeworks" class="list">
+    <p>{{homework.name}} {{homework.status}}</p> 
+  </div>
