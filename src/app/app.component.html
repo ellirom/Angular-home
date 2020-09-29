@@ -2,5 +2,7 @@
     <h1>{{title}} {{numberLesson}}</h1>
 </div>
 <div *ngFor="let homework of homeworks" class="list">
-    <p>{{homework.name}} {{homework.status}}</p> 
-  </div>
+    <ng-container *ngIf="homework.status === false">
+        <p>{{homework.name}} {{homework.status}}</p> 
+    </ng-container>
+ </div>
