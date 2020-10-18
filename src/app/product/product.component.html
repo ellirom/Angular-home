@@ -1,0 +1,9 @@
+<div class="card  mb-3 list" style="width: 23rem;" >
+       <div class="card-body ">
+        <img [src]="productItem.image"  class="card-img-top" alt="">
+      <h5 class="card-title">{{productItem.name}}</h5>
+      <p class="card-text">{{productItem.description}}</p>
+      <p>{{productItem.price}}</p>
+      <button class="btn btn-primary" (click)="addCart(productItem)">Add to cart</button>
+    </div>
+  </div>

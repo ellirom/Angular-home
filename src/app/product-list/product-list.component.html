@@ -1,0 +1,15 @@
+ <div class="container"> 
+    <span >Display </span>
+    <button class="btn-outline-success"  (click)="list()">List</button>
+    <button class="btn-outline-info" (click)="grid()">Grid</button>
+    </div>
+    <div class="card-body mb-3 cart">
+        <h5>Cart</h5>
+<p *ngFor="let item of productCart; let i = index" >{{item.name}} add to cart  <button class="btn-outline-dark"  
+     (click)="deleteProduct(i)">Delete </button></p>
+</div>
+    <div  [ngClass]="{grid: isGrid}">  
+        <app-product  *ngFor="let product of products" [productItem]="product" 
+        (addToCart)="addProduct($event)" ></app-product>
+    </div>
+  
