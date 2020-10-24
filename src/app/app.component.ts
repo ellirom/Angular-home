@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  condition: boolean = true;
+  
 
+  login() {
+    this.condition = true
+  }
+
+  registration(){
+    this.condition = false
+  }
 }

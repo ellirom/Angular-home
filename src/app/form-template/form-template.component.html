@@ -1,0 +1,35 @@
+
+
+<form  #formSet="ngForm" class="form-horizontal" (ngSubmit)="sendForm()"> 
+    <div class="form-group " >
+        <div class="input-group">
+            <input type="text" #name="ngModel" [(ngModel)]="formLogin.name"   name="name" 
+            class="form-control" placeholder="Username or email" 
+            required="required" value="">
+        </div>
+        <div [hidden]="(name.valid  || name.pristine)"    class="input-group form-control error">
+<p >Field is required</p>
+        </div>
+        
+    </div>
+    <div class="form-group ">
+        <div class="input-group">
+            <input type="password" #password="ngModel"  [(ngModel)]="formLogin.password"  name="password" 
+            class="form-control" placeholder="Password" required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" >
+        </div>
+        <div *ngIf="password.errors?.pattern " class="input-group form-control error">
+            <p>Min 8 characters, at least one letter, one number and symbol</p>
+         </div>
+         
+    </div>
+    <div class="form-group">
+        <input type="checkbox" id="rememberMe"  name="remember" [(ngModel)]="formLogin.rememberMe"  required>
+        <label for="rememberMe" class="remember">Remember Me  </label> 
+        <span><a href="#" class="pull-right"> Forgot password?</a></span>
+    </div>  
+
+    <input type="submit" value="Login"  [disabled]="!formSet.form.valid"
+     class="btn btn-success btn-custom" 
+   >
+
+</form>

@@ -1,0 +1,75 @@
+
+
+<form class="form-horizontal" [formGroup]="formUsers" 
+(ngSubmit)="sendForm()">
+    <div class="form-group ">
+        <div class="input-group">
+            <input type="text" 
+            class="form-control" 
+            placeholder="Username"  
+            formControlName="username" [ngClass]="{'error-input': !form.username.valid  && !form.username.pristine}">
+            <div class="input-group "> 
+            <p *ngIf="form.username.errors?.required && !form.username.pristine" 
+            class="error-msg">Field is required</p>
+        </div>
+        </div>
+    </div>
+    <div class="form-group ">
+        <div class="input-group">
+            <input type="text" 
+            class="form-control" 
+            placeholder="Full name"  
+            formControlName="name"  [ngClass]="{'error-input': !form.name.valid  && !form.name.pristine}">
+            <div class="input-group"> 
+                <p *ngIf="form.name.errors?.required && !form.name.pristine" 
+                class="error-msg">Field is required</p>
+            </div>
+        </div>
+    </div>
+    <div class="form-group ">
+        <div class="input-group">
+            <input type="email" 
+            class="form-control"
+             placeholder="Email" 
+             formControlName="email"  [ngClass]="{'error-input': !form.email.valid  && !form.email.pristine}">
+             <div class="input-group"> 
+                <p *ngIf="form.email.errors?.required  && !form.email.pristine" 
+                class="error-msg">Field is required</p>
+                <p *ngIf="form.email.errors?.email  && !form.email.pristine" 
+                class="error-msg">Field is format email</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group ">
+        <div class="input-group">
+            <input type="password" 
+            class="form-control"
+             placeholder="Password" 
+             formControlName="password"  [ngClass]="{'error-input': !form.password.valid  && !form.password.pristine}">
+             <div class="input-group"> 
+                <p *ngIf="form.password.errors?.required && !form.password.pristine" 
+                class="error-msg">Field is required</p>
+                <p *ngIf="form.password.errors?.pattern && !form.password.pristine" 
+                class="error-msg"> Min 8 characters, at least one letter, one number and symbol</p>
+            </div>
+        </div>
+    </div>
+    <div class="form-group ">
+        <div class="input-group">
+            <input type="password" 
+            class="form-control" 
+            placeholder="Confirm Password" 
+            formControlName="password2"  [ngClass]="{'error-input': !form.password2.valid  && !form.password2.pristine}">
+            <div class="input-group"> 
+                <p *ngIf="form.password2.errors?.required && !form.password2.pristine " 
+                class="error-msg">Field is required</p>
+                <p *ngIf="form.password2.errors?.mustMatch">Passwords must match</p>
+            </div>
+        </div>
+      
+    </div>
+  
+    <input type="submit" value="Register" 
+    class="btn btn-success btn-custom" [disabled]="!formUsers.valid">
+</form>

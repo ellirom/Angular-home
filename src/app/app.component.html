@@ -1,0 +1,12 @@
+<section>
+    <h1>Form</h1>
+    <div >
+<button (click)="login()" class="btn btn-success">Login</button>
+<button (click)="registration()" class="btn btn-warning">Registration</button>
+</div>
+<app-form-template *ngIf="condition; else unset"></app-form-template>
+
+<ng-template #unset>
+    <app-form-reactive ></app-form-reactive>
+</ng-template>
+</section>
