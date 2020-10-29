@@ -1,4 +1,7 @@
-<div *ngFor=" let post of posts">
-    <h2>{{post.title}}</h2>
-    <p>{{post.body}}</p>
+<h2>Comments of PostId 1</h2>
+<div  *ngFor="let comment of comments">
+    <div class="content">
+    <h3>Comment{{  comment.id}}</h3>
+    <p>{{comment.body}}</p>
+</div>
 </div>
