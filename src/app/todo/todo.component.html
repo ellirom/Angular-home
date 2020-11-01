@@ -1,0 +1,9 @@
+<div *ngFor="let todo of todos" class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+    <h3 class="card-header">UserId{{todo.userId}}</h3>
+    <p class="card-title">{{todo.title}}</p>
+<div [ngClass]="{'red':todo.completed === false,
+'green':todo.completed === true}"></div>
+    <a routerLink="/todo/{{todo.id}}" class="btn btn-primary"> More info</a>
+
+
+</div>

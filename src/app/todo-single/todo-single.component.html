@@ -1,0 +1,7 @@
+<div *ngIf="todo"  class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+<h3 class="card-header">UserId{{todo.userId}}</h3>
+<p class="card-title">{{todo.title}}</p>
+<div [ngClass]="{'red':todo.completed === false,
+'green':todo.completed === true}"></div>
+<button (click)="backTodo()" class="btn btn-primary">Back</button>
+</div>
