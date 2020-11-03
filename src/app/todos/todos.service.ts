@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Todo } from './todo.model';
@@ -16,11 +16,11 @@ apiUrl = environment.url;
     private http: HttpClient
   ) { }
 
-getPosts(): Observable<Todo[]>{
+getTodos(): Observable<Todo[]>{
 return this.http.get<Todo[]>(`${this.apiUrl}todos`);
 }
 
-getPostById(id: number): Observable<Todo>{
+getTodoById(id: number): Observable<Todo>{
   return this.http.get<Todo>(`${this.apiUrl}todos/${id}`);
 }
 }

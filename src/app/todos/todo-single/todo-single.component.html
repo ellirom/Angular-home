@@ -3,5 +3,6 @@
 <p class="card-title">{{todo.title}}</p>
 <div [ngClass]="{'red':todo.completed === false,
 'green':todo.completed === true}"></div>
-<button (click)="backTodo()" class="btn btn-primary">Back</button>
+
+<app-button [style]="'primary'" [text]="'Back'" (onClick)="backTodo()"></app-button>
 </div>

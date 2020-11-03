@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodosService } from '../todos.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Todo } from '../todo.model';
+import { Todo } from '../../todos/todo.model';
 
 @Component({
   selector: 'app-todo-single',
@@ -20,7 +20,7 @@ todo: Todo;
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
     console.log(id);
-    this.todoService.getPostById(id).subscribe((todo) =>{
+    this.todoService.getTodoById(id).subscribe((todo) =>{
     this.todo = todo
     });
   }

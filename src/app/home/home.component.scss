@@ -2,3 +2,12 @@ p{
     text-align: center;
     
 }
+.mat-tab-group {
+    width: 50%;
+  margin: 0 auto;
+    margin-bottom: 48px;
+    color: green;
+    .mat-tab-header{
+        background-color: blue;
+    }
+  }

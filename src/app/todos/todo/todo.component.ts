@@ -17,11 +17,11 @@ export class TodoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getPost();
+    this.getTodo();
   }
 
-  getPost(){
-this.todosService.getPosts().subscribe((res) =>{
+  getTodo(){
+this.todosService.getTodos().subscribe((res) =>{
 this.todos = res
 })
   }
