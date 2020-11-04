@@ -1,22 +1,7 @@
-.card 
-{position: relative;
-margin: 10px;
-text-align: center;
-    .red{
-        position: absolute;
-        left: 90%;
-        top: 10%;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background-color: red;
-        }
-        .green{
-        position: absolute;
-        left: 90%;
-        top: 10%;   
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background-color: green;
-    }}
+.mat-card{
+    width: 50%;
+    text-align: center;
+    background-color: #9e9e9e1c;
+    color: black;
+    margin: 0 auto;
+}

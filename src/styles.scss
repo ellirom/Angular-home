@@ -3,4 +3,38 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.tab-list {
+    .mat-tab-header{
+        background-color: yellowgreen;
+    }
+    .mat-tab-label-container{
+        background-color: #e0f9e3;
+    }
+    .mat-tab-label-content{
+        color: black;
+    }
+    .mat-tab-body-content{
+        padding: 15px;
+    }
+}
 
+.todo-cart{
+    .red{
+        position: absolute;
+        left: 90%;
+        top: 10%;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: red;
+        }
+        .green{
+        position: absolute;
+        left: 90%;
+        top: 10%;   
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: green;
+        }
+   }

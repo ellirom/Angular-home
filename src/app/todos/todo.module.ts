@@ -6,7 +6,8 @@ import { TodoComponent } from './todo/todo.component';
 import { TodoSingleComponent } from './todo-single/todo-single.component';
 import { ButtonModule } from '../shared/component/button/button.module';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     TodoComponent,
@@ -16,7 +17,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     CommonModule,
     TodoRoutingModule,
     ButtonModule,
-    MatTabsModule
+    MatTabsModule,
+    MatButtonModule,
+    MatCardModule
   ]
 })
 export class TodoModule { }

@@ -1,8 +1,13 @@
-<div *ngIf="todo"  class="card text-white bg-warning mb-3" style="max-width: 18rem;">
-<h3 class="card-header">UserId{{todo.userId}}</h3>
-<p class="card-title">{{todo.title}}</p>
-<div [ngClass]="{'red':todo.completed === false,
+<mat-card  *ngIf="todo"  class="todo-cart">
+    <mat-card-header>
+        <h3>UserId{{todo.userId}}</h3>
+    </mat-card-header>
+    <mat-card-content>
+        <p class="card-title">{{todo.title}}</p>
+    </mat-card-content>
+    <div [ngClass]="{'red':todo.completed === false,
 'green':todo.completed === true}"></div>
-
-<app-button [style]="'primary'" [text]="'Back'" (onClick)="backTodo()"></app-button>
-</div>
+    <mat-card-actions>
+        <app-button  [text]="'Back'" (onClick)="backTodo()" ></app-button>
+    </mat-card-actions>
+  </mat-card>

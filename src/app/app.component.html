@@ -1,6 +1,9 @@
+<button mat-mini-fab color="primary" [matMenuTriggerFor]="menu" class="example-button-container"> <mat-icon>menu</mat-icon></button>
+<mat-menu #menu="matMenu">
 <nav class="nav ">
-    <a routerLink="home" routerLinkActive="active" class="btn btn-danger">Home</a>
-    <a routerLink="todo" routerLinkActive="active" class="btn btn-info">Todo</a>
+    <a routerLink="home" routerLinkActive="active" mat-raised-button color="accent">Home</a>
+    <a routerLink="todo" routerLinkActive="active" button mat-raised-button color="primary">Todo</a>
 </nav>
+</mat-menu>
 
 <router-outlet></router-outlet>
