@@ -1,0 +1,22 @@
+<div class="menu">
+    <a routerLink="/product">
+        <mat-icon>home</mat-icon>  
+    </a>
+    
+    <mat-icon (click)="showMenu()">home</mat-icon>  
+    <h2>Name</h2>
+    <mat-icon>home</mat-icon>  
+    <mat-icon>home</mat-icon>  
+    
+</div>
+<div [ngClass]="{'menu-show': openMenu}">
+      <ul class="list-none">
+        <a routerLink="/product">
+            <li>Products</li>  
+        </a>
+        <a routerLink="/product">
+            <li>Contacts</li>
+        </a>
+         
+    </ul>
+</div>
