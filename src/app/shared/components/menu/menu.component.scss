@@ -1,16 +1,23 @@
+
+.main-menu{
+    .menu{
+        position: fixed;
+     
+     
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 50px;
+        background-color: #00BCD4;
+        display: flex;
+    
+    }
+}
+
 .mat-icon{
     cursor: pointer;
 }
-.menu{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 50px;
-    background-color: #00BCD4;
-    display: flex;
 
-}
 .menu-show{
   padding: 50px 0 0 0;
     width: 100px;
