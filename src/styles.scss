@@ -5,4 +5,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 
 }
 
-@import './assets/scss/common.scss'
+@import './assets/scss/common.scss';
+@import '~@angular/material/theming';
+
+// $my-theme-primary: mat-color($mat-cyan, 300);
+
+// .menu{
+//     background-color: $my-theme-primary;
+// }
+
+.menu {
+  background-color: #69f0ae;}

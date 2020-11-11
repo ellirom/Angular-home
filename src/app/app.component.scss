@@ -1,4 +1,14 @@
 .inner-page{
-    z-index: -1;
-    position: relative;
+    z-index: 1;
+
+    padding-top: 20px;
+}
+.call-icon{
+    width: 50px;
+    border-radius: 50%;
+    background-color: #69f0ae;
+    .mat-icon{
+margin: 25%;
+color: blue;
+    }
 }

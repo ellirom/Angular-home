@@ -2,13 +2,13 @@
 .main-menu{
     .menu{
         position: fixed;
-     
-     
+      
+        z-index: 2;
         top: 0;
         left: 0;
         width: 100vw;
         height: 50px;
-        background-color: #00BCD4;
+       
         display: flex;
     
     }
