@@ -1,20 +1,26 @@
 <div class="">
     <app-menu></app-menu>
+
+<!-- 
+    <div>
+      <div   [ngClass] ="{'call-icon-show':visibility}"></div>
+         <div class="icon-facebook" ><a target="_blank" href="https://ru-ru.facebook.com/GlavnaaStranica/"></div> 
+         <div class="icon-teleg"><a target="_blank" href="https://web.telegram.org/#/login"></a></div> 
+         
+      </div>
+   
+      <button class="call-icon" (click)="showIcon()"><mat-icon>textsms</mat-icon></button>
+      
+    
+  </div> -->
+
+
+
     <div class="inner-page">
         <router-outlet></router-outlet>
     </div>
 
-    <div class="call-icon">
-      <mat-icon>perm_phone_msg</mat-icon>
-    </div>
-    <div >
-        <mat-icon>facebook</mat-icon>
-        <mat-icon>ico-telegram</mat-icon>
-        <mat-icon>perm_phone_msg</mat-icon>
-        <mat-icon>perm_phone_msg</mat-icon>
-      </div>
+    
   
-  
-
 </div>
 

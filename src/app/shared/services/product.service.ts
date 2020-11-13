@@ -16,9 +16,13 @@ export class ProductService {
    private http: HttpClient
   ) { }
 
-getProducts(): Observable<Product[]>{
-return this.http.get<Product[]>(`${this.apiUrl}Products`)
+getProducts(options): Observable<Product[]>{
+
+  return this.http.get<Product[]>(`${this.apiUrl}Products` , {params: options})
+// return this.http.get<Product[]>(`${this.apiUrl}Products?sortBy=${name}&order=${direction}`)
 }
+
+
 getProductSingle(id: number): Observable<Product>{
   return this.http.get<Product>(`${this.apiUrl}Products/${id}`)
 }
