@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/shared/models/product.model';
 import { ProductService } from 'src/app/shared/services/product.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-item',
@@ -9,6 +10,8 @@ import { ProductService } from 'src/app/shared/services/product.service';
 })
 export class ProductItemComponent implements OnInit {
 
+subscription: Subscription;
+
 @Input() product: Product;
 
   constructor(
@@ -16,9 +19,15 @@ export class ProductItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.productService.changeView.subscribe((view)=>{
+
+    this.subscription = this.productService.changeView.subscribe((view)=>{
 console.log(view)
     })
   }
 
+
+  
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

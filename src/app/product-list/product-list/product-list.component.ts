@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { Product, Availability } from 'src/app/shared/models/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class ProductListComponent implements OnInit {
 
 
 
-
+  page = 1;
 
 products: Product[];
 search = '';
@@ -106,4 +107,18 @@ view = 'list';
     this.view = view;
 this.productService.changeView.next(view)
   }
+
+
+  onScroll(){
+console.log('scroll');
+this.page++
+const params = {...this.route.snapshot.queryParams};
+params.page = this.page;
+this.productService.getProducts(params).subscribe((products) =>{
+  this.products = this.products.concat(products);
+})
+
+
+  }
+  
 }

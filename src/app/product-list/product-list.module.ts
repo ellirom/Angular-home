@@ -15,7 +15,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
-
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -31,7 +31,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    MatRadioModule
+    MatRadioModule,
+    InfiniteScrollModule
     
     
   ]

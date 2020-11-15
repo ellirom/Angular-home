@@ -45,7 +45,11 @@
 <ng-container  *ngIf="products?.length > 0; else emptyProduct">
     <div class="d-flex">
         <div  class="col-lg-9 ">
-            <div class="row">
+            <div class="row"
+            infiniteScroll
+      [infiniteScrollDistance]="3"
+      [infiniteScrollThrottle]="50"
+      (scrolled)="onScroll()">
 <div [ngClass]="{'col-lg-12':view === 'list', 'col-lg-4':view === 'grid'}" *ngFor="let product of products">
     <app-product-item  [product]="product" ></app-product-item>
 </div>

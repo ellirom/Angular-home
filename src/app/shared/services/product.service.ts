@@ -19,8 +19,13 @@ export class ProductService {
   ) { }
 
 getProducts(options): Observable<Product[]>{
+  const params = {...options};
+  if (!params.hasOwnProperty('page')){
+params.page = 1;
 
-  return this.http.get<Product[]>(`${this.apiUrl}Products` , {params: options})
+  }
+  params.limit = 12;
+  return this.http.get<Product[]>(`${this.apiUrl}Products` , {params})
 // return this.http.get<Product[]>(`${this.apiUrl}Products?sortBy=${name}&order=${direction}`)
 }
 
