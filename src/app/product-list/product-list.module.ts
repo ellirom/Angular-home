@@ -14,6 +14,9 @@ import {MatButtonModule} from '@angular/material/button';
 
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
+
+
 
 @NgModule({
   declarations: [ProductListComponent, ProductItemComponent],
@@ -27,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatRadioModule
     
     
   ]

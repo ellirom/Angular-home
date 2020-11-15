@@ -1,7 +1,33 @@
-.product-list{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+
+.d-flex .btn{
+    background-color: #69f0ae;
+    color: black;
 }
 
- 
+
+.sort-product{
+    display: flex;
+    justify-content: space-between;
+    .mat-mini-fab {
+    margin-top: 15px;}
+
+.changeView{
+    padding-top: 20px;
+    margin-left: 50px;
+   
+    color: #a52aa5;
+    .icon-view{
+        padding: 5px;
+        cursor: pointer;
+    }
+    
+        
+    }
+
+
+
+}
+
+
+  
+  

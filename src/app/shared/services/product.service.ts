@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Product } from '../models/product.model';
 
 
@@ -12,7 +12,9 @@ export class ProductService {
 
   apiUrl = environment.apiUrl;
 
-  constructor(
+  changeView = new BehaviorSubject('list');
+
+  constructor( 
    private http: HttpClient
   ) { }
 

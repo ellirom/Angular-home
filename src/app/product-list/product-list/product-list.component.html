@@ -1,43 +1,74 @@
 <ng-container *ngIf="loader; else loading">
-<ng-container  *ngIf="products?.length > 0; else emptyProduct">
-    <div>
+    <div class=" sort-product">
+        <div class="d-flex     justify-content-between">
+            <button mat-mini-fab color="accent" [matMenuTriggerFor]="menu" >
+         
+                <mat-icon>sort</mat-icon>
+               
+              </button>
+              <mat-menu #menu="matMenu" >
+                <button mat-menu-item (click)="sortProduct('name', 'asc')">
+                    <span>Sort name A-Z</span>
+                </button>
+                <button mat-menu-item (click)="sortProduct('name', 'desc')">
+                    <span>Sort name Z-A</span>
+                </button>
+                <button mat-menu-item (click)="sortProduct('price', 'asc')">
+                    <span>Sort price up</span>
+                </button>
+                <button mat-menu-item (click)="sortProduct('price', 'desc')"> 
+                    <span>Sort price down</span>
+                </button>
+              </mat-menu>
+              <div class="changeView">
+                <mat-icon class="icon-view" (click)="changeView('grid')">view_comfy</mat-icon>
+                <mat-icon class="icon-view" (click)="changeView('list')">view_list</mat-icon>
+              </div>
+        </div>
         
-        <button mat-icon-button [matMenuTriggerFor]="menu" >
-            <span>Sort products</span>
-            <mat-icon>sort</mat-icon>
-           
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="sortProduct('name', 'asc')">
-                <span>Sort name A-Z</span>
-            </button>
-            <button mat-menu-item (click)="sortProduct('name', 'desc')">
-                <span>Sort name Z-A</span>
-            </button>
-            <button mat-menu-item (click)="sortProduct('price', 'asc')">
-                <span>Sort price up</span>
-            </button>
-            <button mat-menu-item (click)="sortProduct('price', 'desc')"> 
-                <span>Sort price down</span>
-            </button>
-          </mat-menu>
         
          <div>
-                <mat-form-field appearance="outline">
+             <form (ngSubmit)="searchProduct()">
+                <mat-form-field appearance="outline" >
                   <mat-label>Search</mat-label>
-                  <input matInput placeholder="Search">
-                  <div class="example-button-container">
-                    <!-- <button mat-mini-fab color="accent">
+                  <input matInput  name="search" placeholder="Search" [(ngModel)]="search"  >
+                  
+                   </mat-form-field> 
+                    <button mat-mini-fab color="accent" (click)="searchProduct()">
                       <mat-icon>search</mat-icon>
-                    </button> -->
-                  </mat-form-field> 
-           
+                    </button>
+               
+                </form>
             </div>
               
     </div>
-<div  class="product-list">
-    <app-product-item *ngFor="let product of products" [product]="product" ></app-product-item>
+<ng-container  *ngIf="products?.length > 0; else emptyProduct">
+    <div class="d-flex">
+        <div  class="col-lg-9 ">
+            <div class="row">
+<div [ngClass]="{'col-lg-12':view === 'list', 'col-lg-4':view === 'grid'}" *ngFor="let product of products">
+    <app-product-item  [product]="product" ></app-product-item>
 </div>
+            </div>
+            
+        </div>
+<div class="col-lg-3 ">
+   <div class="d-flex align-items-center justify-content-between">
+    <h2>Filters:</h2>
+    <button type="button" class="btn" (click)="clearFilter()">Clear all filtrs</button>
+   
+   </div>
+   
+<mat-radio-group aria-label="Select an option"  [(ngModel)]="availabilityProduct" (change)="changeAvailability()">
+    <div *ngFor="let availability of availabilities">
+    <mat-radio-button [value]="availability.availability">{{availability.name}}</mat-radio-button>
+    </div>
+   
+  </mat-radio-group>
+</div>
+    </div>
+
+
 </ng-container>
 <ng-template #emptyProduct>
 Not found product

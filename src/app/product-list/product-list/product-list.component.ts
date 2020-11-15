@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/shared/services/product.service';
-import { Product } from 'src/app/shared/models/product.model';
+import { Product, Availability } from 'src/app/shared/models/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-product-list',
@@ -10,8 +11,24 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductListComponent implements OnInit {
 
+  availabilities = [
+{ availability: true, name:'In-stock'
+
+},
+{
+  availability: '',  name:'All products'
+}
+  ];
+  availabilityProduct = false;
+
+
+
+
+
 products: Product[];
+search = '';
 loader = false;
+view = 'list';
 
   constructor(
     private route: ActivatedRoute,
@@ -23,19 +40,70 @@ loader = false;
   ngOnInit() {
     console.log(this.route.snapshot.queryParams);
     const params = this.route.snapshot.queryParams;
+    if (params.hasOwnProperty('search')){
+    this.search = params.search;
+    }
+    // let filter = {availability: true};
     this.productService.getProducts(params).subscribe((products) =>{
       console.log(products);
-    
-      this.products = products;
+       this.products = products;
       this.loader = true;
     })
   }
+
+
   sortProduct(name, direction) {
     this.loader = false;
     this.productService.getProducts({sortBy:name, order: direction}).subscribe((products) =>{
       this.products = products;
       this.loader = true;
-      this.router.navigate(['/product'], {queryParams:{sortBy:name, order: direction }})
+      this.router.navigate(['/product'], {queryParams:{sortBy:name, order: direction },
+    queryParamsHandling: ''})
     })
+  }
+
+  searchProduct(){
+    console.log(this.search)
+ this.loader = false;
+    this.productService.getProducts({search: this.search }).subscribe((products) =>{
+      this.products = products;
+      this.loader = true;
+      this.router.navigate(['/product'], {queryParams:{search: this.search },
+      queryParamsHandling: ''})
+    })
+  }
+
+  changeAvailability(){
+    console.log('change availability', this.availabilityProduct);
+    this.loader = false;
+    this.productService.getProducts({availability: this.availabilityProduct }).subscribe((products) =>{
+      this.products = products;
+      this.loader = true;
+      this.router.navigate(['/product'], {queryParams:{availability: this.availabilityProduct  },
+      queryParamsHandling: 'merge'})
+    })
+   
+  }
+
+  clearFilter(){
+    const params = {...this.route.snapshot.queryParams};
+    console.log(params);
+    delete params.availability;
+    this.loader = false;
+    this.productService.getProducts(params).subscribe((products) =>{
+      
+      this.loader = true;
+      this.products = products;
+      this.availabilityProduct = false;
+      this.router.navigate(['/product'], {queryParams:params,
+      queryParamsHandling: ''})
+    })
+   
+
+  }
+
+  changeView(view){
+    this.view = view;
+this.productService.changeView.next(view)
   }
 }

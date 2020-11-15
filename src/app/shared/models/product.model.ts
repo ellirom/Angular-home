@@ -7,4 +7,10 @@ export interface Product {
     description: string;
     price: number;
     availability: boolean;
+} 
+
+export enum Availability{
+true,
+false,
+
 }
