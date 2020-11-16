@@ -3,6 +3,7 @@ import { ProductService } from 'src/app/shared/services/product.service';
 import { Product, Availability } from 'src/app/shared/models/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { CartServiceService } from 'src/app/services/cart-service.service';
 
 
 @Component({
@@ -35,6 +36,7 @@ view = 'list';
     private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService,
+    private cartService: CartServiceService
    
   ) { }
 
@@ -120,5 +122,5 @@ this.productService.getProducts(params).subscribe((products) =>{
 
 
   }
-  
+ 
 }

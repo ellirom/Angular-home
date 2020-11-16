@@ -12,7 +12,9 @@
         </mat-card-content>
         <mat-card-actions>
      
-          <button mat-button [disabled]="!product.availability"> <mat-icon>shopping_cart</mat-icon></button>
+          <button mat-button [disabled]="!product.availability" class="btn btn-sm" 
+          [ngClass]="this.isAdded[i] ? 'btn-success' : 'btn-outline-secondary'"  
+          (click)="addToCart($event, product.id)"> <mat-icon>shopping_cart</mat-icon></button>
         </mat-card-actions>
       </mat-card>
 </div>

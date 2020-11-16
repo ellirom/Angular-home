@@ -10,9 +10,14 @@ import { Product } from '../models/product.model';
 }) 
 export class ProductService {
 
+
+
   apiUrl = environment.apiUrl;
 
   changeView = new BehaviorSubject('list');
+
+products: Product[];
+
 
   constructor( 
    private http: HttpClient
@@ -33,4 +38,7 @@ params.page = 1;
 getProductSingle(id: number): Observable<Product>{
   return this.http.get<Product>(`${this.apiUrl}Products/${id}`)
 }
+
+
+
 }

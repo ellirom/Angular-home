@@ -16,10 +16,11 @@ import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { CartProductComponent } from './cart-product/cart-product.component';
 
 
 @NgModule({
-  declarations: [ProductListComponent, ProductItemComponent],
+  declarations: [ProductListComponent, ProductItemComponent, CartProductComponent],
   imports: [
     CommonModule,
     ProductListRoutingModule,
